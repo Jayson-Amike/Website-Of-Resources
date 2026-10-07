@@ -25,6 +25,33 @@
             max-width: 800px;
             margin: 0 auto;
         }
+        /* Navigation Menu Bar Styles */
+        .navbar {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            background-color: var(--primary);
+            padding: 12px 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .navbar a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 6px 14px;
+            border-radius: 4px;
+            transition: background 0.2s, color 0.2s;
+        }
+        .navbar a:hover {
+            background-color: var(--accent);
+            color: #ffffff;
+        }
+        .navbar a.active {
+            background-color: var(--accent);
+            color: #ffffff;
+        }
         h1 {
             color: var(--primary);
             text-align: center;
@@ -79,6 +106,12 @@
 <body>
 
 <div class="container">
+    <!-- Menu Bar -->
+    <nav class="navbar">
+        <a href="index.html">🐳 Docker Guide</a>
+        <a href="index2.html" class="active">📂 Git Cheat Sheet</a>
+    </nav>
+
     <h1>Git Essential Cheat Sheet</h1>
     <p class="subtitle">Your command-line roadmap for version control and team collaboration</p>
 
@@ -134,8 +167,6 @@ git push origin main    # 5. Send commits to remote repository
         <h3>git checkout -b &lt;branch-name&gt;</h3>
         <p><strong>Create & Switch:</strong> Creates a brand new feature branch and immediately switches your workspace over to it.</p>
     </div>
-
-    <h2 class="section-title">Remote Collaboration</h2>
 
     <div class="card">
         <h3>git push origin &lt;branch&gt;</h3>
