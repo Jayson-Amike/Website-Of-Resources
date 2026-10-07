@@ -25,6 +25,33 @@
             max-width: 800px;
             margin: 0 auto;
         }
+        /* Navigation Menu Bar Styles */
+        .navbar {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            background-color: var(--primary);
+            padding: 12px 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .navbar a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 6px 14px;
+            border-radius: 4px;
+            transition: background 0.2s, color 0.2s;
+        }
+        .navbar a:hover {
+            background-color: var(--accent);
+            color: #ffffff;
+        }
+        .navbar a.active {
+            background-color: var(--accent);
+            color: #ffffff;
+        }
         h1 {
             color: var(--primary);
             text-align: center;
@@ -65,7 +92,7 @@
         }
         .card h3 {
             margin: 0 0 5px 0;
-color: #010029; /* Change this hex code to your preferred heading color (e.g., dark indigo or charcoal) */
+            color: #010029;
             font-family: monospace;
             font-size: 1.15rem;
             font-weight: 700;
@@ -79,6 +106,12 @@ color: #010029; /* Change this hex code to your preferred heading color (e.g., d
 <body>
 
 <div class="container">
+    <!-- Menu Bar -->
+    <nav class="navbar">
+        <a href="index.html" class="active">🐳 Docker Guide</a>
+        <a href="index2.html">📂 Git Cheat Sheet</a>
+    </nav>
+
     <h1>Anatomy of a Dockerfile</h1>
     <p class="subtitle">The factory blueprint for your application's shipping container</p>
 
@@ -136,6 +169,28 @@ CMD ["npm", "start"]
     <div class="card">
         <h3>CMD ["npm", "start"]</h3>
         <p><strong>The Start Command:</strong> The final instruction that runs automatically the exact second the container spins up.</p>
+    </div>
+
+    <h2 class="section-title">How to Build & Run Your Container</h2>
+
+    <div class="dockerfile-box">
+        <code>
+# 1. Build the Docker Image (tag it as 'my-node-app')
+docker build -t my-node-app .
+
+# 2. Run the Docker Container (map port 3000 on host to 3000 in container)
+docker run -d -p 3000:3000 --name my-running-app my-node-app
+        </code>
+    </div>
+
+    <div class="card">
+        <h3>docker build -t my-node-app .</h3>
+        <p><strong>Building the Image:</strong> Reads the Dockerfile in your current directory (<code>.</code>), executes every instruction step-by-step, and packages the result into a reusable image tagged as <code>my-node-app</code>.</p>
+    </div>
+
+    <div class="card">
+        <h3>docker run -d -p 3000:3000 --name my-running-app my-node-app</h3>
+        <p><strong>Running the Container:</strong> Spins up an active container instance from your image. The <code>-d</code> flag runs it in the background (detached), and <code>-p 3000:3000</code> forwards port 3000 from your computer into the container so you can view your app in a browser.</p>
     </div>
 
 </div>
