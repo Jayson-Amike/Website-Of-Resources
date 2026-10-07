@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git Essential Cheat Sheet | IBM Z DevOps</title>
+    <style>
+        :root {
+            --primary: #010029;
+            --accent: #2563eb;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text: #1e293b;
+            --code-bg: #f1f5f9;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: var(--primary);
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #64748b;
+            margin-bottom: 30px;
+        }
+        .dockerfile-box {
+            background-color: var(--primary);
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: monospace;
+            overflow-x: auto;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .dockerfile-box code {
+            display: block;
+            white-space: pre;
+        }
+        .section-title {
+            color: var(--primary);
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 8px;
+            margin-top: 30px;
+        }
+        .card {
+            background-color: var(--card-bg);
+            border-left: 4px solid var(--accent);
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .card h3 {
+            margin: 0 0 5px 0;
+            color: #010029;
+            font-family: monospace;
+            font-size: 1.15rem;
+            font-weight: 700;
+        }
+        .card p {
+            margin: 0;
+            color: var(--text);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Git Essential Cheat Sheet</h1>
+    <p class="subtitle">Your command-line roadmap for version control and team collaboration</p>
+
+    <!-- Quick Workflow Preview Box -->
+    <div class="dockerfile-box">
+        <code>
+# Typical Git Lifecycle
+git init                # 1. Initialize local repository
+git status              # 2. Check changed files
+git add .               # 3. Stage changes for commit
+git commit -m "msg"     # 4. Save snapshot with a message
+git push origin main    # 5. Send commits to remote repository
+        </code>
+    </div>
+
+    <h2 class="section-title">Setup & Initialization</h2>
+
+    <div class="card">
+        <h3>git init</h3>
+        <p><strong>Initialize:</strong> Turns your current working folder into a brand new, empty Git repository, enabling version tracking.</p>
+    </div>
+
+    <div class="card">
+        <h3>git clone &lt;url&gt;</h3>
+        <p><strong>Clone:</strong> Downloads an existing remote repository (from GitHub, GitLab, etc.) onto your local machine along with its entire history.</p>
+    </div>
+
+    <h2 class="section-title">Basic Daily Workflow</h2>
+
+    <div class="card">
+        <h3>git status</h3>
+        <p><strong>Inspect State:</strong> Displays paths that have changes, which files are staged for commit, and which are untracked.</p>
+    </div>
+
+    <div class="card">
+        <h3>git add &lt;file&gt; (or . )</h3>
+        <p><strong>Stage Changes:</strong> Moves modified or new files from your working directory into the staging area, preparing them for a snapshot.</p>
+    </div>
+
+    <div class="card">
+        <h3>git commit -m "commit message"</h3>
+        <p><strong>Save Snapshot:</strong> Takes all staged changes and permanently records them into the local repository history with a descriptive log message.</p>
+    </div>
+
+    <h2 class="section-title">Branching & Navigation</h2>
+
+    <div class="card">
+        <h3>git branch</h3>
+        <p><strong>List Branches:</strong> Shows all local branches in your repository and highlights the one you are currently working on.</p>
+    </div>
+
+    <div class="card">
+        <h3>git checkout -b &lt;branch-name&gt;</h3>
+        <p><strong>Create & Switch:</strong> Creates a brand new feature branch and immediately switches your workspace over to it.</p>
+    </div>
+
+    <h2 class="section-title">Remote Collaboration</h2>
+
+    <div class="card">
+        <h3>git push origin &lt;branch&gt;</h3>
+        <p><strong>Upload:</strong> Sends your committed local history changes up to the specified remote server branch so others can access them.</p>
+    </div>
+
+    <div class="card">
+        <h3>git pull</h3>
+        <p><strong>Fetch & Merge:</strong> Downloads the latest updates from the remote server repository and automatically merges them into your active local branch.</p>
+    </div>
+
+</div>
+
+</body>
+</html>
