@@ -3,197 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anatomy of a Dockerfile | IBM Z DevOps</title>
-    <style>
-        :root {
-            --primary: #010029;
-            --accent: #2563eb;
-            --bg: #f8fafc;
-            --card-bg: #ffffff;
-            --text: #1e293b;
-            --code-bg: #f1f5f9;
-        }
-        body {
-            font-family: Arial, sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-            margin: 0;
-            padding: 20px;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        /* Navigation Menu Bar Styles */
-        .navbar {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            background-color: var(--primary);
-            padding: 12px 20px;
-            border-radius: 8px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-        .navbar a {
-            color: #cbd5e1;
-            text-decoration: none;
-            font-weight: bold;
-            padding: 6px 14px;
-            border-radius: 4px;
-            transition: background 0.2s, color 0.2s;
-        }
-        .navbar a:hover {
-            background-color: var(--accent);
-            color: #ffffff;
-        }
-        .navbar a.active {
-            background-color: var(--accent);
-            color: #ffffff;
-        }
-        h1 {
-            color: var(--primary);
-            text-align: center;
-            margin-bottom: 10px;
-        }
-        .subtitle {
-            text-align: center;
-            color: #64748b;
-            margin-bottom: 30px;
-        }
-        .dockerfile-box {
-            background-color: var(--primary);
-            color: #e2e8f0;
-            padding: 20px;
-            border-radius: 8px;
-            font-family: monospace;
-            overflow-x: auto;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-        .dockerfile-box code {
-            display: block;
-            white-space: pre;
-        }
-        .section-title {
-            color: var(--primary);
-            border-bottom: 2px solid #e2e8f0;
-            padding-bottom: 8px;
-            margin-top: 30px;
-        }
-        .card {
-            background-color: var(--card-bg);
-            border-left: 4px solid var(--accent);
-            padding: 15px 20px;
-            margin-bottom: 15px;
-            border-radius: 0 8px 8px 0;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
-        .card h3 {
-            margin: 0 0 5px 0;
-            color: #010029;
-            font-family: monospace;
-            font-size: 1.15rem;
-            font-weight: 700;
-        }
-        .card p {
-            margin: 0;
-            color: var(--text);
-        }
-    </style>
+    <title>Workshop Resources | IBM Z DevOps</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="container">
     <!-- Menu Bar -->
     <nav class="navbar">
-        <a href="index.html" class="active">🐳 Docker Guide</a>
-        <a href="index2.html">📂 Git Cheat Sheet</a>
-    </nav>
+        <a href="index.html"  class="active">🔗 Workshop Resources</a>
+        <a href="Git.html">📂 Git Cheat Sheet</a>
+            <a href="Docker.html" >🐳 Docker Guide</a>
+</nav>
 
-    <h1>Anatomy of a Dockerfile</h1>
-    <p class="subtitle">The factory blueprint for your application's shipping container</p>
+    <h1>Workshop Resources</h1>
+    <p class="subtitle">Essential links, repositories, and learning platforms for the IBM Z DevOps workshop</p>
 
-    <!-- Raw Dockerfile Display -->
-    <div class="dockerfile-box">
-        <code>
-# 1. Base Image (The Foundation)
-FROM node:18-alpine
+    <h2 class="section-title">Official Links & Repositories</h2>
 
-# 2. Working Directory (The Workspace)
-WORKDIR /app
 
-# 3. Dependencies (Install packages)
-COPY package*.json ./
-RUN npm install
-
-# 4. Source Code (Copy project files)
-COPY . .
-
-# 5. Port Exposure (Open a window)
-EXPOSE 3000
-
-# 6. Start Command (Engine ignition)
-CMD ["npm", "start"]
-        </code>
-    </div>
-
-    <h2 class="section-title">Line-by-Line Breakdown</h2>
 
     <div class="card">
-        <h3>FROM node:18-alpine</h3>
-        <p><strong>The Foundation:</strong> Every container needs a starting point. This tells Docker to start with a lightweight Linux image that already has Node.js version 18 installed.</p>
+        <h3><a href="https://github.com/Jayson-Amike/IMBZ-devops-workshop" target="_blank">GitHub Repository (IMBZ-devops-workshop)</a></h3>
+        <p>The official source control repository containing code snippets, exercises, configurations, and presentation layouts for the workshop.</p>
     </div>
+
+    <h2 class="section-title">Supplemental Learning Platforms</h2>
 
     <div class="card">
-        <h3>WORKDIR /app</h3>
-        <p><strong>The Workspace:</strong> Sets the active directory inside the container box (like typing <code>cd /app</code>) so all future commands happen here.</p>
+        <h3><a href="https://github.com/Jayson-Amike/IMBZ-devops-workshop" target="_blank">IBM Z Xplore Learning Platform</a></h3>
+        <p>Hands-on enterprise computing environment to practice z/OS navigation, ISPF panels, JCL batch job submission, and DFSMS data management.</p>
     </div>
 
-    <div class="card">
-        <h3>COPY package*.json ./ & RUN npm install</h3>
-        <p><strong>The Dependencies:</strong> Copies your package lists into the container and runs the installer to download all necessary libraries in isolation.</p>
-    </div>
-
-    <div class="card">
-        <h3>COPY . .</h3>
-        <p><strong>The Source Code:</strong> Takes the rest of your local project files (JS, CSS, HTML) and moves them into the container's workspace.</p>
-    </div>
-
-    <div class="card">
-        <h3>EXPOSE 3000</h3>
-        <p><strong>The Port:</strong> Opens a specific port on the container so the outside world can talk to the application running inside.</p>
-    </div>
-
-    <div class="card">
-        <h3>CMD ["npm", "start"]</h3>
-        <p><strong>The Start Command:</strong> The final instruction that runs automatically the exact second the container spins up.</p>
-    </div>
-
-    <h2 class="section-title">How to Build & Run Your Container</h2>
-
-    <div class="dockerfile-box">
-        <code>
-# 1. Build the Docker Image (tag it as 'my-node-app')
-docker build -t my-node-app .
-
-# 2. Run the Docker Container (map port 3000 on host to 3000 in container)
-docker run -d -p 3000:3000 --name my-running-app my-node-app
-        </code>
-    </div>
-
-    <div class="card">
-        <h3>docker build -t my-node-app .</h3>
-        <p><strong>Building the Image:</strong> Reads the Dockerfile in your current directory (<code>.</code>), executes every instruction step-by-step, and packages the result into a reusable image tagged as <code>my-node-app</code>.</p>
-    </div>
-
-    <div class="card">
-        <h3>docker run -d -p 3000:3000 --name my-running-app my-node-app</h3>
-        <p><strong>Running the Container:</strong> Spins up an active container instance from your image. The <code>-d</code> flag runs it in the background (detached), and <code>-p 3000:3000</code> forwards port 3000 from your computer into the container so you can view your app in a browser.</p>
-    </div>
+   
 
 </div>
+
+<!-- Footer Section -->
+<footer class="footer">
+    <div class="footer-links">
+        <a href="https://ibm-z-york-u-website-nu.vercel.app/" target="_blank">🌐 Website</a>
+        <a href="https://www.instagram.com/ibmzyorku/" target="_blank">📸 Instagram</a>
+        <a href="https://www.linkedin.com/company/ibmzyorku" target="_blank">💼 LinkedIn</a>
+    </div>
+    <p>&copy; 2026 IBM Z York U. All rights reserved.</p>
+</footer>
 
 </body>
 </html>
